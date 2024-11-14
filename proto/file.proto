@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./pb"; // 変換後のディレクトリ
+
+// messageは複数のフィールドを持つ型
+message ListFilesRequest {};
+message ListFilesResponse {
+    repeated string Filenames = 1; // repeatedは配列
+};
+
+service FileService {
+    rpc ListFiles (ListFilesRequest) returns (ListFilesResponse);
+}
